@@ -74,3 +74,8 @@ publisher confirm
 	nack - a exchange rejeita a mensagem por algum motivo
 
 filas e mensagens duraveis/persistidas
+
+
+executando o rabbitmq
+
+acessando o rabbbitmq localmente: http://localhost:15672
