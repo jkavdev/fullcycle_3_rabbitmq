@@ -54,3 +54,23 @@ podemos configurar uma exchange e fila para essas mensagens que nao foram entreg
 
 lazy queues, sao filas que armazenam as mensagens em disco, tem que ter um cenario bem especifico para poder utilizalas, pois o padrao sao filas que armazenam em memoria
 tem um alta utilizacao de I/O, devido ao disco, utilizada normalmente quando o fluxo de mensagens eh tao grande que os consumidores nao conseguem ler todas as mensagens, ai para garantir a ordem das mensagens essas mensagens pode ser jogadas para essa fila
+
+simulando o sistema de mensageria no rabbitmq
+	https://tryrabbitmq.com/
+
+confiabilidade	
+o rabbitmq tem recursos que ajudam a termos confiabilidade na entrega de mensagens e saber se foi processada corretamente pelos consumidores
+consumer aknowledgement
+	temos tres 3 tipos de repostas nesse caso
+	ack - indica que conseguiu processar com sucesso a mensagem
+	reject - indica que nao conseguiu processar a mensagem, rejeitando a mensagem, mensagem por mensagem, fazendo que a mensagem retorna para a fila
+	nack - eh a mesma coisa do reject, mas consegue rejeitar varias mensagens ao mesmo tempo
+
+publisher confirm
+	quando o publisher enviar a mensagem para a exchange, a exchange enviara uma resposta indicando que recebeu a mensagem
+	para esse caso, eh criado um id unico para a mensagem, de responsabilidade do cliente em criar esse id
+	temos 2 tipos
+	ack - a exchange recebeu a mensagem
+	nack - a exchange rejeita a mensagem por algum motivo
+
+filas e mensagens duraveis/persistidas
